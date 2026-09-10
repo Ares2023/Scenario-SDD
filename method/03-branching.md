@@ -19,8 +19,12 @@ Git のブランチでどう分離・同期するかを定める。
 ```bash
 git switch main
 git switch -c scenario/<作品名>          # 例: scenario/charlotte
-cp -r templates/scenario/* .            # ルートへ「コピー」（移動しない：第4節参照）
-# フォーム(_*.template.md)は使うときにコピーするので、不要なら削除してよい
+# コンテンツのディレクトリだけを明示コピー（移動しない：第4節参照）。
+# `*` は使わない：templates/scenario/README.md がルート README.md（プロジェクト説明）を上書きするため。
+cp -r templates/scenario/spec templates/scenario/plans templates/scenario/output \
+      templates/scenario/decisions templates/scenario/ideas .
+# テンプレの使い方ガイド templates/scenario/README.md は templates/ 側に残す（ルート README は触らない）。
+# フォーム(_*.template.md / _character/)は使うときにコピーするので、不要なら削除してよい
 git add -A
 git commit -m "chore: <作品名> をテンプレートから開始"
 ```
@@ -38,7 +42,7 @@ git commit -m "chore: <作品名> をテンプレートから開始"
 └── ideas/          # 採否未定のアイデア置き場（任意・必要駆動）
 ```
 
-`output/` をルートに置くことで「番号順に連結＝通し読み」が成立する（憲法・構成規約 第7節）。
+`output/` をルートに置くことで「番号順に連結＝通し読み」が成立する（憲法・構成規約 第8節）。
 
 ---
 
