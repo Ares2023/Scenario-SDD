@@ -126,3 +126,6 @@
 
 各段階は AI が勝手に判断・確定してはならない。
 **人間の承認をもって初めて Locked になる。** 承認前の記述はすべて Open（提案）として扱う。
+
+この原則を、**審査**（Locked 昇格の関門）に落としたのが [`01-review-protocol.md`](01-review-protocol.md)、
+**生成**（AI に本文を書かせる引き渡し）に落としたのが [`05-generation-protocol.md`](05-generation-protocol.md)。

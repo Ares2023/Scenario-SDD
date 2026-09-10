@@ -1,7 +1,7 @@
 # シナリオ・テンプレート
 
 新しいシナリオは、このディレクトリの中身をシナリオ用の場所（別ブランチ等）へコピーして始める。
-規約の根拠は `method/`（`00-constitution` / `01-review-protocol` / `02-document-layout` / `04-character-protocol`）。
+規約の根拠は `method/`（`00-constitution` / `01-review-protocol` / `02-document-layout` / `04-character-protocol` / `05-generation-protocol`）。
 
 ## 記入順序（憲法第3条：骨→肉）
 
@@ -15,10 +15,14 @@
 5. `spec/40-cast/` … 配役。**1キャラ＝1フォルダ**（`_character/` をコピー。`04-character-protocol` に従う）
 6. `spec/50-world/` … 世界・設定（`_topic.template.md` をコピー、必要駆動）
 
+**様式（内容とは別軸・生成前までに確定）**
+- `spec/60-form` … 視点・時制・文体・媒体（表層のものさし）。生成時にAIへ必ず渡す
+
 > 人物型アンカーを選んだ場合、正アンカー人物も `40-cast/` にフォルダを持ち、核の実体はそこに置く。
 > `00-anchor` はそれを語幹参照で指すだけにする（`04-character-protocol` 第4節）。
 
-そのうえで生成単位ごとに `plans/` → `output/` を回す。
+そのうえで生成単位ごとに `plans/`（.locked）→ `output/` を回す。
+AI への引き渡し（何を渡すか・触ってよい範囲・逸脱申告・改稿の規律）は `05-generation-protocol` に従う。
 
 ## ステータス（＝信頼度）の扱い
 
