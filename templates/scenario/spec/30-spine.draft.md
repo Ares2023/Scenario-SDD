@@ -12,7 +12,7 @@
 - **beat-2**:
 - **beat-3**:
 - …
-- **beat-N**: <!-- アンカーの Scene に着地する -->
+- **beat-N**: <!-- アンカーの具体面（Scene／原型反応）に着地する -->
 
 ## Locked / Open
 - **Locked**:

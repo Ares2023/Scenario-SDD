@@ -27,12 +27,16 @@
 ```
 <シナリオ>/
 ├── spec/                      # 仕様層（設計・拘束）
-│   ├── 00-anchor.<status>.md      # アンカー（正副・Scene/Message・Locked/Open）
+│   ├── 00-anchor.<status>.md      # アンカー（型・正副・抽象面/具体面・Locked/Open）
 │   ├── 10-opposition.<status>.md  # 骨1: 対立軸
 │   ├── 20-origin.<status>.md      # 骨2: 主人公の初期状態（逆算）
 │   ├── 30-spine.<status>.md       # 骨3: 因果の背骨（ビート列）
-│   ├── 40-cast/                   # 肉4: 配役
-│   │   └── NN-<character>.<status>.md
+│   ├── 40-cast/                   # 肉4: 配役（1キャラ＝1フォルダ）
+│   │   └── NN-<character>/         # 人物構築プロトコル（04-character-protocol）
+│   │       ├── 00-core.<status>.md      # 核＋原型反応＋欲求と恐れ＋禁則
+│   │       ├── 10-voice.<status>.md     # 声と知覚
+│   │       ├── 20-relations.<status>.md # 座組内の差分
+│   │       └── 30-arc.<status>.md       # spine 沿いの変化
 │   └── 50-world/                  # 肉5: 世界・設定（必要駆動）
 │       └── NN-<topic>.<status>.md
 ├── plans/                     # 計画層（生成前計画書）
@@ -72,6 +76,7 @@
 
 - 参照は**ステータス接尾辞を含まない「語幹」**で行う。
   - spec：`spec/00-anchor`、`spec/30-spine`
+  - 人物（フォルダ）：`spec/40-cast/10-charlotte`。サブ要素は `#` で指す（`…#core`、`…#voice`、`…#arc-beat-7`）。
   - 生成単位：`<NN>-<unit>`（例 `30-ten`）。`plans/` と `output/` で同じ語幹を共有する。
 - 語幹に一致する実体ファイルは各フォルダに**唯一**とする。
 - これにより、承認でステータス接尾辞が変わっても参照は壊れない（トレーサビリティ／憲法第4条を守る）。
@@ -110,10 +115,10 @@ derives_from:                  # どの仕様・計画を実現するか（語�
 - `derives_from` は語幹参照。実体はステータスに依らず解決される。
 
 **`plans/NN-<unit>` に書くこと：**
-- この単位で**達成すべきこと**（アンカー Message のどの面に奉仕するか）
+- この単位で**達成すべきこと**（アンカーの抽象面〈Message／核〉のどの面に奉仕するか）
 - 仕様からの**制約**（Locked 事項の再掲）
 - この単位内での **Locked / Open の線引き**
-- **受け入れ基準**（＝ Message を満たすかの判定条件。審査対象）
+- **受け入れ基準**（＝抽象面を満たすかの判定条件。審査対象）
 
 計画が `.locked` になって初めて `output/` の生成に進む。ここが検問所（憲法第5条）。
 
